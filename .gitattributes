@@ -1,0 +1,94 @@
+# ==============================================================
+#  newton-instrumentation — .gitattributes
+# ==============================================================
+#  Tells git which files are binary (never diff or merge them)
+#  and normalises line endings across macOS, Windows and Linux.
+# ==============================================================
+
+
+# --------------------------------------------------------------
+#  Default: let git handle text normalisation
+# --------------------------------------------------------------
+* text=auto eol=lf
+
+
+# --------------------------------------------------------------
+#  CAD — binary, never diff
+# --------------------------------------------------------------
+*.3dm    binary
+*.3dmbak binary
+*.step   binary
+*.stp    binary
+*.stl    binary
+*.iges   binary
+*.igs    binary
+*.f3d    binary
+*.FCStd  binary
+*.sldprt binary
+*.sldasm binary
+
+
+# --------------------------------------------------------------
+#  KiCad — schematics and PCB are text, but must not be merged
+#  automatically: a bad merge silently corrupts the netlist
+# --------------------------------------------------------------
+*.kicad_sch  text merge=binary
+*.kicad_pcb  text merge=binary
+*.kicad_pro  text merge=binary
+*.kicad_sym  text
+*.kicad_mod  text
+*.net        text
+
+
+# --------------------------------------------------------------
+#  Documents and images — binary
+# --------------------------------------------------------------
+*.pdf   binary
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.webp  binary
+*.ico   binary
+*.svg   text
+
+
+# --------------------------------------------------------------
+#  Archives and firmware images — binary
+# --------------------------------------------------------------
+*.zip binary
+*.7z  binary
+*.gz  binary
+*.bin binary
+*.elf binary
+*.hex binary
+
+
+# --------------------------------------------------------------
+#  Source and config — always LF, even on Windows
+# --------------------------------------------------------------
+*.py   text eol=lf
+*.cpp  text eol=lf
+*.c    text eol=lf
+*.h    text eol=lf
+*.hpp  text eol=lf
+*.ino  text eol=lf
+*.ini  text eol=lf
+*.toml text eol=lf
+*.yaml text eol=lf
+*.yml  text eol=lf
+*.json text eol=lf
+*.md   text eol=lf
+*.tex  text eol=lf
+*.csv  text eol=lf
+*.sh   text eol=lf
+
+
+# --------------------------------------------------------------
+#  Language stats — keep GitHub's bar honest
+#  CAD scripts count as source; generated meshes do not
+# --------------------------------------------------------------
+cad/stl/*        linguist-generated=true
+cad/step/*       linguist-generated=true
+cad/drawings/*   linguist-documentation=true
+docs/*           linguist-documentation=true
