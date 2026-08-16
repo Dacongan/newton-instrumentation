@@ -1,0 +1,330 @@
+# ==============================================================
+#  newton-instrumentation
+#  Low-cost instrumentation for a 130/650 Newtonian telescope
+# ==============================================================
+#
+#  SECURITY FIRST. This project embeds WiFi credentials, may talk
+#  to APIs and produces observation logs that contain your GPS
+#  position and the hours you are away from home.
+#
+#  Rule of thumb: if it holds a password, a token or a location,
+#  it does not belong in git. Ship a *.template instead.
+# ==============================================================
+
+
+# --------------------------------------------------------------
+#  1. SECRETS AND CREDENTIALS
+# --------------------------------------------------------------
+
+# Firmware credentials — commit secrets.h.template instead
+firmware/include/secrets.h
+firmware/src/secrets.h
+**/secrets.h
+**/secrets.hpp
+**/credentials.h
+**/wifi_config.h
+
+# Environment files
+.env
+.env.*
+!.env.template
+!.env.example
+*.env
+
+# Generic secret files
+secrets.*
+!secrets.*.template
+!secrets.*.example
+credentials.*
+!credentials.*.template
+config.local.*
+settings.local.*
+*.secret
+*.private
+
+# API keys and tokens
+*apikey*
+*api_key*
+*.token
+.netrc
+.npmrc
+.pypirc
+
+# Keys and certificates
+*.pem
+*.key
+*.crt
+*.cer
+*.der
+*.p12
+*.pfx
+*.jks
+*.keystore
+id_rsa*
+id_ed25519*
+*.ppk
+.ssh/
+
+# Cloud provider credentials
+.aws/
+.azure/
+.gcloud/
+gcloud-*.json
+service-account*.json
+
+
+# --------------------------------------------------------------
+#  2. LOCATION AND OBSERVATION PRIVACY
+# --------------------------------------------------------------
+#
+#  Session logs record WHERE you observe and WHEN you are out.
+#  Keep raw sessions local. Promote only curated campaigns,
+#  with the site named generically — never exact coordinates.
+
+logs/
+**/logs/
+raw-sessions/
+*.log
+!example.log
+
+# Observation site configuration
+site.json
+site.yaml
+location.*
+observatory.json
+
+
+# --------------------------------------------------------------
+#  3. EMBEDDED / PLATFORMIO / ARDUINO
+# --------------------------------------------------------------
+
+.pio/
+.pioenvs/
+.piolibdeps/
+.clang_complete
+.gcc-flags.json
+firmware/lib/
+!firmware/lib/README
+*.elf
+*.hex
+*.bin
+!**/assets/**/*.bin
+build/
+.build/
+
+
+# --------------------------------------------------------------
+#  4. PYTHON
+# --------------------------------------------------------------
+
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+.virtualenv/
+
+# Packaging
+dist/
+develop-eggs/
+downloads/
+eggs/
+.eggs/
+sdist/
+wheels/
+*.egg-info/
+*.egg
+MANIFEST
+
+# Tooling caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+.hypothesis/
+
+# Jupyter
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+profile_default/
+ipython_config.py
+
+
+# --------------------------------------------------------------
+#  5. CAD AND 3D PRINTING
+# --------------------------------------------------------------
+
+# Rhino backups
+*.3dmbak
+*.rhl
+rhino_backup/
+
+# Slicer output — printer specific, huge, never versioned
+*.gcode
+*.gco
+*.g
+*.3mf
+*.gcode.*
+
+# Mesh repair leftovers
+*.stl.bak
+*_repaired.stl
+*_fixed.stl
+
+# FreeCAD / Fusion / SolidWorks locals
+*.FCStd1
+*.f3d.bak
+~$*.SLDPRT
+~$*.SLDASM
+
+
+# --------------------------------------------------------------
+#  6. LATEX
+# --------------------------------------------------------------
+
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.lot
+*.out
+*.synctex.gz
+*.toc
+*.nav
+*.snm
+*.vrb
+*.bcf
+*.run.xml
+*.xdv
+*.idx
+*.ilg
+*.ind
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.ist
+*.figlist
+*.makefile
+*.figlist-*
+_minted*/
+
+# Keep the compiled report
+!docs/report/*.pdf
+
+
+# --------------------------------------------------------------
+#  7. NODE (only if a web client is ever added)
+# --------------------------------------------------------------
+
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnp.*
+.yarn/*
+!.yarn/releases
+.next/
+.nuxt/
+.cache/
+.parcel-cache/
+
+
+# --------------------------------------------------------------
+#  8. EDITORS AND IDES
+# --------------------------------------------------------------
+
+# VS Code — keep shared config, drop personal settings
+.vscode/*
+!.vscode/extensions.json
+!.vscode/tasks.json
+.history/
+
+# JetBrains
+.idea/
+*.iml
+*.iws
+
+# Vim / Emacs
+*.swp
+*.swo
+*~
+\#*\#
+.\#*
+.dir-locals.el
+
+# Sublime
+*.sublime-workspace
+*.sublime-project
+
+
+# --------------------------------------------------------------
+#  9. OPERATING SYSTEM
+# --------------------------------------------------------------
+
+# macOS
+.DS_Store
+.DS_Store?
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd
+.TemporaryItems
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+Icon?
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+.directory
+.Trash-*
+.nfs*
+
+
+# --------------------------------------------------------------
+#  10. ARCHIVES AND SCRATCH
+# --------------------------------------------------------------
+
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+!cad/releases/*.zip
+
+tmp/
+temp/
+scratch/
+sandbox/
+TODO.private.md
+NOTES.private.md
+*.local
+*.bak
+*.orig
+*.rej
