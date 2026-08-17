@@ -1,0 +1,10 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Safety — solar filters
+    url: https://github.com/Dacongan/newton-instrumentation#safety--solar-filter
+    about: >-
+      This project does not discuss alternative or homemade solar filter
+      materials. Read the safety section first.
+  - name: strehl — the processing suite used for validation
+    url: https://github.com/Dacongan/strehl
+    about: Questions about stacking, wavelets or Strehl measurement belong there.

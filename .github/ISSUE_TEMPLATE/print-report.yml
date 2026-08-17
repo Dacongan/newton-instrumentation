@@ -1,0 +1,72 @@
+name: Print report
+description: You printed a part — tell me how it went, including if it went fine
+labels: ["print-report"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Fit tolerances depend on your printer as much as on the model, and
+        I only have one printer to test on. Reports that say "it fitted"
+        are as useful as reports that say it did not.
+
+  - type: dropdown
+    id: part
+    attributes:
+      label: Part
+      options:
+        - NI-01 Ventilation cover
+        - NI-03 Focus wheel
+        - NI-04 Motor pulley
+        - NI-06 Solar cap (bayonet)
+        - NI-06.1 Film retaining ring
+        - NI-06.2 Bayonet plug
+        - NI-07 Bahtinov mask
+        - NI-08 Focuser dust cap
+    validations:
+      required: true
+
+  - type: input
+    id: printer
+    attributes:
+      label: Printer and nozzle
+      placeholder: "Creality CR-10 V2, 0.4 mm"
+    validations:
+      required: true
+
+  - type: input
+    id: material
+    attributes:
+      label: Material and layer height
+      placeholder: "PLA, 0.2 mm"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: fit
+    attributes:
+      label: How did it fit?
+      options:
+        - Fitted correctly
+        - Too loose
+        - Too tight
+        - Did not fit at all
+        - Not a fit issue
+    validations:
+      required: true
+
+  - type: textarea
+    id: detail
+    attributes:
+      label: What happened
+      description: >-
+        If it was loose or tight, roughly by how much? Measured with
+        calipers if you have them. Photos help.
+    validations:
+      required: true
+
+  - type: input
+    id: telescope
+    attributes:
+      label: Telescope
+      description: Only if it is not a Bresser 130/650.
+      placeholder: "Skywatcher 150/750"
