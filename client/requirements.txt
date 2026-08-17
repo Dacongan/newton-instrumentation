@@ -1,0 +1,13 @@
+# newton-instrumentation — terminal client
+#
+# The ESP32 serves JSON, not HTML, so the interface is a terminal
+# UI rather than a web page: it matches the visual language of
+# strehl and it is scriptable, which is what autofocus routines and
+# publishable measurement runs actually need.
+
+rich>=13.7
+requests>=2.31
+
+# Serial fallback, for when WiFi is not available or is being
+# debugged. The board ordered uses a CP2102; clones use a CH340.
+pyserial>=3.5
