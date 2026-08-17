@@ -6,7 +6,7 @@ drawing. Everything else was numbered around it.
 
 | No. | Part | Subsystem | Script | Model | Drawing | Status |
 |---|---|---|---|---|---|---|
-| NI-01 | Ventilation cover | Thermal | — | `models/NI-01_ventilation_cover.3dm` | `drawings/NI-01_…_undimensioned.pdf` | Printed, in service |
+| NI-01 | Ventilation cover | Thermal | — | `models/NI-01_ventilation_cover.3dm` | `drawings/NI-01_ventilation_cover.pdf` | Printed, in service |
 | NI-02 | Secondary heater mount | Thermal | — | — | — | Not designed |
 | NI-03 | Focus wheel (dual crown) | Focuser | `scripts/focus_wheel.py` | `models/NI-03_focus_wheel.3dm` | — | **Printed and fitted** |
 | NI-04 | Motor pulley | Focuser | `scripts/motor_pulley.py` | `models/NI-04_motor_pulley.3dm` | `drawings/NI-04_motor_pulley.pdf` | Designed v3, not printed |
