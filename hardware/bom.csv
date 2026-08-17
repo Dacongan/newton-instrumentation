@@ -1,0 +1,21 @@
+ref,qty,item,subsystem,block,supplier,unit_eur,critical,notes
+U1,1,ESP32 DevKit V1 30-pin USB-C (CP2102),control,B,Electrohobby,,,verified in stock; CP2102 works natively on macOS
+U2,1,ESP32 30P expansion board,control,B,Electrohobby,,,
+U3,2,AHT20 + BMP280 module,thermal,B,Electrohobby,,,ambient air: humidity for the dew point + pressure
+U4,4,DS18B20 sealed probe 1 m,thermal,B,Electrohobby,,,primary edge / secondary / tube air / spare; 4k7 pull-up already on the module
+Q1,5,MOSFET IRLZ44N TO-220,thermal,B,ElectroComponentes,,YES,"the L is logic-level: conducts on the ESP32's 3V3. IRF or IRFZ needs ~10 V and would sit half-on, heating up"
+R1,20,Resistor 100 ohm 1/2 W,thermal,B,ElectroComponentes,,YES,"six in parallel = 16.7 ohm, 0.300 A, 1.50 W total, 0.250 W each. At 1/4 W they would run at 100 % of rating"
+HTR1,1,Polyimide heating film 5 V,thermal,B,Electrohobby,,,alternative to the resistor array
+C1,5,Capacitor 1000 uF 16 V,control,B,ElectroComponentes,,YES,"decoupling next to the ESP32. WiFi peaks hit 500 mA and the board brown-outs and resets without it"
+M1,2,28BYJ-48 stepper + ULN2003 driver,focuser,B,Electrohobby,,,measure the shaft flat-to-flat on arrival; 3.00 mm assumed
+OR1,5,O-ring 52 x 4 mm,focuser,B,Electrohobby,,,"OD52 x CS4 gives 41.2 mm centre distance at 6 % stretch; OD48 was too tight at 34.5"
+FST1,1,M3 Allen DIN 912 assortment,mechanical,B,Electrohobby,,YES,"Allen not Phillips: does not round off and fits tight recesses. Must include M3x14 for the solar filter ring"
+INST1,1,USB voltage/current meter,control,B,Electrohobby,,,measure at the board, not at the battery
+W1,1,Silicone cable 22 AWG 2-core 5 m,wiring,A,AliExpress,,YES,"silicone not PVC: PVC cracks when flexed at 2 C. 22 AWG minimum because 0.5 V of drop is 10 % at 5 V"
+PB1,1,Breadboard 830 points,wiring,A,AliExpress,,,
+USB1,1,USB-C female breakout with 5k1 resistors,wiring,A,AliExpress,,YES,"the two 5k1 SMD resistors must be visible in the listing photo. Without them a modern USB-C charger will not negotiate and delivers no current over a C-to-C cable"
+DP1,120,Dupont jumpers 20 cm M-M / M-F / F-F,wiring,A,AliExpress,,,20 cm not 10: inside the enclosure 10 cm does not reach
+MAT1,1,PETG black 1 kg,printing,C,filament supplier,,,solar cap and eclipse-glasses chassis. Order early - own lead time
+MAT2,1,Baader AstroSolar Safety Film ND5,optics,C,astronomy supplier,,YES,"NEVER improvised. Not welding film, not X-ray film, not a CD, never an eyepiece filter"
+MAT3,1,Neutral-cure silicone,mechanical,C,hardware store,,,"bonds the heater to the secondary holder. Acetic cure is corrosive"
+MAT4,1,Black adhesive velvet,optics,C,hardware store,,,dew shield interior
