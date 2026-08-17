@@ -13,6 +13,33 @@
 
 
 # --------------------------------------------------------------
+#  0. PRIVATE — NEVER PUBLISHED
+# --------------------------------------------------------------
+#  Working context, not deliverables. They carry personal data and
+#  notes that are not for publication. They stay local, permanently.
+# --------------------------------------------------------------
+
+# Project context and working notes
+docs/project-context.md
+docs/repo-setup.md
+docs/private/
+*.private.md
+*.local.md
+NOTES.md
+TODO.md
+
+# Claude Code
+CLAUDE.md
+CLAUDE.local.md
+.claude/
+.claude-*/
+MEMORY.md
+.cursorrules
+.aider*
+.github/copilot-instructions.md
+
+
+# --------------------------------------------------------------
 #  1. SECRETS AND CREDENTIALS
 # --------------------------------------------------------------
 
@@ -178,8 +205,17 @@ rhino_backup/
 
 # Mesh repair leftovers
 *.stl.bak
+*.stlbak
 *_repaired.stl
 *_fixed.stl
+
+# Meshes are DERIVED artefacts, not source.
+# The source of truth is cad/src/*.py and cad/src/*.3dm; the exchange
+# format is cad/step/*.step. An STL is regenerated on demand and
+# shipped as a ZIP attached to a release — versioning it on every
+# iteration inflates the history for nothing.
+# To publish the meshes anyway, delete the next line.
+cad/stl/*.stl
 
 # FreeCAD / Fusion / SolidWorks locals
 *.FCStd1
