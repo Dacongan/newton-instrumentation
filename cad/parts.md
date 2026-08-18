@@ -51,7 +51,7 @@ separate from the model file.
 | NI-03 | PLA | Large crown on the bed | 5 | 30 % | 0.20 |
 | NI-04 | PLA | **Upright, axis vertical** | 5 | 40 % | 0.20 |
 | NI-06 | **PETG** | Outer face on the bed | 4 | 25 % | 0.20 |
-| NI-06.1 | **PETG** | Nut face up | 4 | 25 % | 0.20 |
+| NI-06.1 | **PETG** | Nut face up | 4 | **100 %** | 0.20 |
 | NI-06.2 | **PETG** | Flange on the bed, tabs up | 4 | 25 % | 0.20 |
 | NI-07 | PLA, matte black | Plate on the bed, skirt up | **3 — no more** | 15 % | 0.28 (first 0.20) |
 
@@ -73,10 +73,12 @@ nozzle 240 °C, bed 80 °C first layer and 70 °C after, part fan **40 %**
 longer, and a glue-stick or hairspray release layer — PETG welds to glass
 and takes a chip out of the plate on removal.
 
-Note that NI-06.1 overrides the 25 % in the table above and prints at
-**100 %**. It is a bolted clamp: four M3 screws pulling a 3.5 mm plate
-against the film. The reason is stiffness, not light — the ring sits
-behind 8.5 mm of cap and the film spans its full bore.
+NI-06.1 is the odd one out at 100 % infill while the rest of the NI-06
+family sits at 25 %. It is a bolted clamp: four M3 screws pulling a 3.5 mm
+plate against the film, and 25 % would leave a hollow core exactly where
+the plate bends between screws. The reason is stiffness, not light — the
+ring sits behind 8.5 mm of cap and the film spans its full bore, so no
+light reaches it either way. It costs 2 g and five minutes.
 
 ## Mass in the title block
 
