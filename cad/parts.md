@@ -8,7 +8,7 @@ drawing. Everything else was numbered around it.
 |---|---|---|---|---|---|---|
 | NI-01 | Ventilation cover | Thermal | — | `models/NI-01_ventilation_cover.3dm` | `drawings/NI-01_ventilation_cover.pdf` | Printed, in service |
 | NI-02 | Secondary heater mount | Thermal | — | — | — | Not designed |
-| NI-03 | Focus wheel (dual crown) | Focuser | `scripts/focus_wheel.py` | `models/NI-03_focus_wheel.3dm` | — | **Printed and fitted** |
+| NI-03 | Focus wheel (dual crown) | Focuser | `scripts/focus_wheel.py` | `models/NI-03_focus_wheel.3dm` | `drawings/NI-03_focus_wheel.pdf` | **Printed and fitted** |
 | NI-04 | Motor pulley | Focuser | `scripts/motor_pulley.py` | `models/NI-04_motor_pulley.3dm` | `drawings/NI-04_motor_pulley.pdf` | Designed v3, not printed |
 | NI-05 | Motor mount | Focuser | — | — | — | **Blocked** — see below |
 | NI-06 | Solar cap, bayonet | Optics | `scripts/solar_cap.py` | `models/NI-06_solar_cap.3dm` | — | Designed, awaiting PETG |
@@ -65,9 +65,42 @@ Three of these are not preferences:
 - **NI-07 stops at 3 perimeters.** The 4.33 mm bar is 10.8 lines of
   0.4 mm; more perimeters and the bar prints hollow.
 
-PETG on the CR-10 V2: nozzle 235–245 °C, bed 75–85 °C, part fan
-**30–50 %** (not 100 %, or layer adhesion suffers), higher retraction,
-and a glue-stick release layer — it sticks too well to glass.
+PETG on the CR-10 V2 has its own document: the full Cura profile, the
+release layer, and the per-piece overrides live in
+[`../docs/printing-petg.md`](../docs/printing-petg.md). Short version:
+nozzle 240 °C, bed 80 °C first layer and 70 °C after, part fan **40 %**
+(not 100 %, or layer adhesion suffers), retraction **slower** rather than
+longer, and a glue-stick or hairspray release layer — PETG welds to glass
+and takes a chip out of the plate on removal.
+
+Note that NI-06.1 overrides the 25 % in the table above and prints at
+**100 %**. It is a bolted clamp: four M3 screws pulling a 3.5 mm plate
+against the film. The reason is stiffness, not light — the ring sits
+behind 8.5 mm of cap and the film spans its full bore.
+
+## Mass in the title block
+
+The `MASA` field of a drawing is the mass of the part **as modelled**:
+
+```
+mass = solid volume from Rhino  x  material density
+       PLA  1.24 g/cm3
+       PETG 1.27 g/cm3
+```
+
+Not the figure the slicer reports. A drawing describes the part, and
+infill is a manufacturing parameter — it is recorded in the table above,
+which is where it belongs. Reprinting the same part at a different infill
+must not invalidate its drawing, and any reader must be able to reproduce
+the number from the drawing alone.
+
+Worked example, NI-03: 18 977.17 mm3 solid → 18.98 cm3 × 1.24 =
+**23.5 g**. Sliced at 30 % it weighs about 17–20 g; that number does not
+go on the drawing.
+
+**NI-01 is unverified.** Its title block says 46.0 g and there is no
+record of how that was obtained. Recompute it under this rule before the
+drawing is cited anywhere.
 
 ## What blocks NI-05
 
